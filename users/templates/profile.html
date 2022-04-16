@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+        <img class="rounded-circle account-img" style="width: 75px; height: auto;" src="{{ author.image.url }}">
+        <div class="media-body">
+            <h4 class="account-heading">Welcome back, {{ author.name }}!</h4>
+            <p class="text-secondary">{{ author.email }}</p>
+        </div>
+        </div>
+    </div>
+    <div class="container content-section px-5">
+        <div class="row">
+            <center>
+                <h1>Your Posts</h1>
+            </center>
+        </div>
+        {% for post in posts %}
+        <div class="row py-3 ">
+            <div class="row "><img src="{{ post.header_image.url }}" alt="" style="width: 80%;"></div>
+            <div class="row mt-2"><h3>{{ post.title }}</h3></div>
+            <div class="row ">{{ post.content }}</div>
+            <div class="row mt-2"><a href="/post/{{post.id}}/">Read More ></a></div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

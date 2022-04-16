@@ -1,0 +1,14 @@
+Project Name: django-project
+User defined apps: blog, users
+
+users-
+    register -> create a new author.
+    login -> the author can log in and gets the access to published 
+    logout -> the author can logout from his account.
+    change password -> the user can also change the password with this utility.
+
+blog - 
+    home, about -> basic website.
+    create post -> helps in creating post with header image set.
+                    header image gets its caption text on its own.
+    delete post -> helps in deleting the created post.

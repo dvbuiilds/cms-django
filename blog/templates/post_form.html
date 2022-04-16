@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class="content-section">
+        <div class="">
+            <h1>Create New Post</h1>
+        </div>
+        <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <!-- Image -->
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload the Header Image</label>
+                <input class="form-control" name="header_img" type="file" id="formFile" onchange="loadFile(event)">
+            </div>
+            <img id="output" width="500">	
+            <script>
+                var loadFile = function(event) {
+                    var image = document.getElementById('output');
+                    image.src = URL.createObjectURL(event.target.files[0]);
+                };
+            </script>
+            <!-- Caption -->
+            <div class="mb-3">
+                <label for="" class="form-label"> Caption for Header Image</label>
+                <small class="text-muted">(If you dont provide it, it will generate on its own.)</small>
+                <input type="text" name="caption" class="form-control">
+            </div>
+            <!-- Title -->
+            <div class="mb-3">
+                <label for="" class="form-label"> Title</label>
+                <input required type="text" name="title" class="form-control">
+            </div>
+            <!-- Body -->
+            <div class="mb-3 form-outline4">
+                <label for="" class="form-label"> Content</label>
+                <textarea required type="text" name="body"  class="form-control" id="textAreaExample6" rows="8" ></textarea>
+            </div>
+            <!-- Button -->
+            <div class="col-md-4">
+                <button type="submit" class="top-section-button " style="background-color: #2e9191; border-radius: 5px !important; width: 80% !important; height: auto; font-size: 18px; font-weight: 600 !important;" value="">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

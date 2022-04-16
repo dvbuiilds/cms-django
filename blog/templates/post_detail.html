@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.author_id.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.author.username }}</a>
+        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+        {% if object.author_id.id == request.session.auth_id %}
+          <div class="my-2">
+            <a href="/post/{{ object.id }}/update/">
+              <button class="btn btn-primary" >Update</button>
+            </a>
+            <a href="/post/{{ object.id }}/delete/">
+              <button class="btn btn-danger" >Delete</button>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      {% if message %}
+      <div>
+        {{ message }}
+      </div>
+      {% endif %}
+      <h2 class="article-title">{{ object.title }}</h2>
+      <img class="" src="{{ object.header_image.url }}">
+      <br>
+      <small class="article-title">{{ object.img_caption }}</small>
+      <p class="article-content">{{ object.content }}</p>
+    </div>
+  </article>
+  <section class="">
+    <div class="container">
+      <div class="row">
+        <h2>Comments</h2>
+      </div>
+      <div class="row">
+        {% for coms in comments %}
+        <div class="row">
+          <h4>{{ coms.name }}</h4>
+          <small>{{ coms.date_added }}</small>
+        </div>
+        <div class="row">
+          <p>{{ coms.body }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <hr>
+      <div class="row">
+        <h4>Add your comment too!</h4>
+      </div>
+      <form method="POST" enctype="multipart/form-data" action="/post/{{ object.id }}/comment/">
+        {% csrf_token %}
+        <!-- Name -->
+        <div class="mb-3">
+            <label for="" class="form-label"> Your name</label>
+            <input required type="text" name="name" class="form-control">
+        </div>
+        <!-- Body -->
+        <div class="mb-3 form-outline4">
+            <label for="" class="form-label"> Comment</label>
+            <textarea required type="text" name="body"  class="form-control" id="textAreaExample6" rows="4" ></textarea>
+        </div>
+        <!-- Button -->
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary " value="">Post Comment</button>
+        </div>
+     </form>
+    </div>
+  </section>
+{% endblock content %}

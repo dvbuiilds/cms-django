@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %} 
+    <div class="content-section">
+        <div class="container">
+            <div>
+                <h1>Login</h1>
+            </div>
+            <form action = "/login/" method="post">
+                {% csrf_token %}
+                {% if error %}
+                <div class="row">
+                    <p style="color: rgb(235, 0, 0);">*{{error}}</p>
+                </div>
+                {% endif %}
+                <!-- Username -->
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Username</label>
+                  <input required type="name" name="username" class="form-control" id="exampleInputEmail1" value="{{values.email}}" aria-describedby="emailHelp">
+                </div>
+                <!-- Password -->
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input required name="password" type="password" class="form-control" id="exampleInputPassword1" value="{{values.password}}" >
+                </div>
+                <!-- Button -->
+                <div class="col-md-4">
+                    <button type="submit" class="" style="border-radius: 5px !important; width: 80% !important; height: auto; font-size: 18px; font-weight: 600 !important;" value="">Sign in</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="pt-3">
+            <small class="text-muted">
+                Don't Have An Account? <a class="ml-2" href="{% url 'register' %}">Sign up</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

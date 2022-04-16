@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section ">
+        <div class=" my-3">
+            <h1>Create a New Author Account</h1>
+        </div>
+        <form method="POST" action="/register/">
+            {% csrf_token %}
+            {% if error %}
+            <div class="row">
+                <p style="color: rgb(235, 0, 0);">*{{error}}</p>
+            </div>
+            {% endif %}
+            <!-- Username -->
+            <div class="mb-3">
+                <label for="" class="form-label"> Username</label>
+                <input required type="text" name="username" class="form-control">
+            </div>
+            <!-- Name -->
+            <div class="mb-3">
+                <label for="" class="form-label"> Name</label>
+                <input required type="text" name="name" class="form-control">
+            </div>
+            <!-- Phone Number -->
+            <div class="mb-3">
+                <label for="" class="form-label">Contact Number (with country code)</label>
+                <input required type="text" name="number" class="form-control">
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Official Email address</label>
+                <input required type="email" name="email" class="form-control" id="exampleInputEmail1" value="{{values.email}}" aria-describedby="emailHelp">
+            </div>
+            <!-- Password 1 -->
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Set Password</label>
+                <input required name="password1" type="password" class="form-control" id="exampleInputPassword1" value="{{values.password1}}" >
+            </div>
+            <!-- Password 2 -->
+            <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label">Repeat Password</label>
+                <input required name="password2" type="password" class="form-control" id="exampleInputPassword1" value="{{values.password2}}" >
+            </div>
+            <!-- Button -->
+            <div class="col-md-4">
+                <button type="submit" class="top-section-button " style="background-color: #2e9191; border-radius: 5px !important; width: 80% !important; height: auto; font-size: 18px; font-weight: 600 !important;" value="">Create Account</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Log In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
