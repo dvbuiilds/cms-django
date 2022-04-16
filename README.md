@@ -12,4 +12,15 @@ As you create a post being a user, you can skip adding caption (as many times, t
 
 # Steps to Install this repository Locally
 
-```pip install requirements.txt```
+1. Star Mark the Repo. ;)
+2. Fork the repo by clicking the trident symbol on the top. You'll get a duplicate repo on your account pointing to this repo.
+3. Clone your copy of repo and make a local copy.
+4. Install Python latest version. (Mine is 3.10)
+5. Create venv : ```python -m venv env```
+6. Install the required packages: ```pip install -r requirements.txt```. This will take a while.
+7. Finally run the server: ```python manage.py runserver```
+
+### Account credentials
+1. superuser: { username: dhairya, password: password }
+2. author1: { username: dhairya, password: dvdvdvdv90@ }
+3. author2: { username:sarthak, password: password }
