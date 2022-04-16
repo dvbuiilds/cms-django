@@ -74,7 +74,6 @@ def greedySearch(photo):
 
 
 def generate_caption(img_url):
-    encoded_vector = encode(img_url)
-    #print(encoded_vector.shape, encoded_vector)
-    encoded_vector = encoded_vector.reshape(1,2048)
-    return greedySearch(encoded_vector)
+  encoded_vector = encode(img_url)
+  encoded_vector = encoded_vector.reshape(1,2048)
+  return greedySearch(encoded_vector)

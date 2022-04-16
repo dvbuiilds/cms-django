@@ -9,7 +9,7 @@ class author(models.Model):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=200)
     phno = models.CharField(max_length=20)
-    image = models.ImageField(default='images/default.jpg', upload_to='static/profile_pics')
+    image = models.ImageField(default='images/default.jpg', upload_to='profile_pics/')
 
     def __str__(self):
         return f'{self.username} Profile'

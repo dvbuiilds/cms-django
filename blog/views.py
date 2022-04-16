@@ -1,8 +1,7 @@
 from django.shortcuts import redirect, render
-from .forms import *
 from django.views.generic import ListView
 from django.views import View
-from .models import Post
+from .models import Post, Comment
 from users.models import *
 from .function import *
 
@@ -32,7 +31,6 @@ class newpost(View):
         else:
             post_obj.img_caption = generate_caption('./' + post_obj.header_image.url)
             post_obj.save()
-            print(post_obj.img_caption)
         return redirect('profile')
 
 

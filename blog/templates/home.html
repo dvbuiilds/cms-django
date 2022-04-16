@@ -12,11 +12,11 @@
       <div class="row">
         <a href="{% url 'post-detail' post.id %}" style="text-decoration: none;"><h3>{{ post.title }}</h3></a>
         <small>by {{ post.author_id.name }}, {{ post.date_posted|date:"F d, Y" }} </small>
-        <span maxlength="30">{{ post.content }}...<a href="{% url 'post-detail' post.id %}">Read More</a></span>
+        <span maxlength="30" >{{ post.content }}...<a href="{% url 'post-detail' post.id %}">Read More</a></span>
       </div>
     </div>
-    
     {% endfor %}
+    
     {% if is_paginated %}
 
       {% if page_obj.has_previous %}
@@ -39,3 +39,4 @@
 
     {% endif %}
 {% endblock content %}
+<!--style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"-->
