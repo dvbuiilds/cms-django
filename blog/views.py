@@ -8,7 +8,7 @@ from .function import *
 
 def home(request):
     context = {
-        'posts': Post.objects.all(),
+        'posts': Post.objects.all().order_by('-id'),
         'title': 'Home'
     }
     return render(request, 'home.html', context)
@@ -38,8 +38,10 @@ class PostListView(ListView):
     model = Post
     template_name = 'home.html'  
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    ordering = ['-id']
     paginate_by = 5
+    def get_queryset(self):
+        return Post.objects.order_by('-id')
 
 
 class PostDetailView(View):
