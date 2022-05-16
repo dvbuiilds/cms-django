@@ -14,7 +14,7 @@ STATIC_DIR=BASE_DIR/'static'
 SECRET_KEY = 'django-insecure-dxkhf(gvcd342p_c%$$wo97*c**=ay)2$n^h-0etgp!@@!4jol'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -120,18 +120,3 @@ MEDIA_ROOT=BASE_DIR/'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-'''CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-LOGIN_REDIRECT_URL = 'blog-home'
-LOGIN_URL ='login'
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')'''
-
-# Activate Django-Heroku.
-#django_heroku.settings(locals())
