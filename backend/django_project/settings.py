@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-dxkhf(gvcd342p_c%$$wo97*c**=ay)2$n^h-0etgp!@@!4jol
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'micro-blog-dv.herokuapp.com', 'https://micro-blog-dv.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
